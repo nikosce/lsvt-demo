@@ -1,0 +1,48 @@
+<div *ngIf="question">
+    <!--<svg-icon src="images/eye.svg" style="fill:green;width:90px;"></svg-icon>-->
+
+    <div>{{ course.name }}</div>
+
+    <div id="timer">{{ countMinute }}:{{ countSecond }}</div>
+
+    <div>QUESTION: {{ currentQuestionSortOrder }}/{{ course.questions.length }}</div>
+
+    <div>{{ alertMessage }}</div>
+
+    <div>Drag and drop the items below in the correct order.</div>
+
+
+    <div>{{ question.name }}</div>
+
+
+    <!--<div class="example-config">
+        <h6>Items: {{items | json}}</h6>
+    </div>-->
+        <kendo-sortable [navigatable]="true"
+                        [animation]="true"
+                        [data]="question.answers"
+                        class=""
+                        itemClass=" "
+                        activeItemClass="  active">
+            <ng-template let-answer="item">
+                <div class="containerHandle">
+                    <div class="numberHandle">{{ answer.sortOrder }}</div>
+                    <div class="answerHandle">{{ answer.name }}</div>
+                </div>
+            </ng-template>
+        </kendo-sortable>
+
+
+
+
+
+
+    <!--<div *ngFor="let answer of question.answers" style="background-color:#ffe; border:1px solid">
+        <div>{{ answer.sortOrder }}</div>
+        <div>{{ answer.name }}</div>
+    </div>-->
+
+    <div>
+        <button (click)="nextQuestion()">SUBMIT &gt;</button>
+    </div>
+</div>
