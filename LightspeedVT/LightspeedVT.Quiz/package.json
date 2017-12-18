@@ -23,6 +23,7 @@
     "@progress/kendo-angular-sortable": "^1.0.5",
     "@progress/kendo-theme-default": "^2.45.3",
     "@types/webpack-env": "1.13.0",
+    "angular-svg-icon": "^4.2.6",
     "angular2-template-loader": "0.6.2",
     "aspnet-prerendering": "^3.0.1",
     "aspnet-webpack": "^2.0.1",

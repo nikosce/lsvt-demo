@@ -1,23 +1,35 @@
-<div *ngIf="question">
-    <!--<svg-icon src="images/eye.svg" style="fill:green;width:90px;"></svg-icon>-->
+<div *ngIf="question" style="width:100%;">
+    <table style="width:100%; background-color:#255cbe; height:40px">
+        <tr>
+            <td><svg-icon src="{{ chapterImageUrl }}" style="fill:white; width:16px; margin:15px 15px"></svg-icon></td>
+            <td style="color:white; font-size:20pt">|</td>
+            <td style="text-align:center; color:white; font-weight:bold; font-size:14pt">{{ course.name }}</td>
+            <td style="color:white; font-size:20pt">|</td>
+            <td style="text-align:right"><svg-icon src="{{ closeImageUrl }}" style="fill:white; width:16px; margin:15px 15px"></svg-icon></td>
+        </tr>
+    </table>
 
-    <div>{{ course.name }}</div>
+    <table style="width:100%; background-color:#ff7500; color:white; height:40px;">
+        <tr>
+            <td><svg-icon src="{{ timeImageUrl }}" style="fill:white; width:16px; margin:15px 15px"></svg-icon> <span style="font-size:16pt; font-weight:bold;">{{ countMinute }}:{{ countSecond }}</span></td>
+            <td style="text-align:right; padding-right:10px">QUESTION: {{ currentQuestionSortOrder }}/{{ course.questions.length }}</td>
+        </tr>
+    </table>
 
-    <div id="timer">{{ countMinute }}:{{ countSecond }}</div>
+    <div style="text-align:center; background-color:#ffc8c8; color:red; font-weight:bold;">{{ alertMessage }}</div>
 
-    <div>QUESTION: {{ currentQuestionSortOrder }}/{{ course.questions.length }}</div>
+    <div style="color:#255cbe; font-weight:bold; margin:10px 10px">{{ question.name }}</div>
 
-    <div>{{ alertMessage }}</div>
+    <div style="font-style:italic; color:#aaa; font-size:9pt; text-align:center">Drag and drop the items below in the correct order.</div>
 
-    <div>Drag and drop the items below in the correct order.</div>
+    <div style="float:left">
+        <div class="numberHandle">1</div>
+        <div class="numberHandle">2</div>
+        <div class="numberHandle">3</div>
+        <div class="numberHandle">4</div>
+    </div>
 
-
-    <div>{{ question.name }}</div>
-
-
-    <!--<div class="example-config">
-        <h6>Items: {{items | json}}</h6>
-    </div>-->
+    <div style="float:left">
         <kendo-sortable [navigatable]="true"
                         [animation]="true"
                         [data]="question.answers"
@@ -25,24 +37,17 @@
                         itemClass=" "
                         activeItemClass="  active">
             <ng-template let-answer="item">
-                <div class="containerHandle">
-                    <div class="numberHandle">{{ answer.sortOrder }}</div>
-                    <div class="answerHandle">{{ answer.name }}</div>
+                <div class="answerHandle">
+                    {{ answer.name }}
                 </div>
             </ng-template>
         </kendo-sortable>
+    </div>
 
-
-
-
-
-
-    <!--<div *ngFor="let answer of question.answers" style="background-color:#ffe; border:1px solid">
-        <div>{{ answer.sortOrder }}</div>
-        <div>{{ answer.name }}</div>
-    </div>-->
-
-    <div>
-        <button (click)="nextQuestion()">SUBMIT &gt;</button>
+    <div style="clear:both">
+        <button (click)="nextQuestion()" style="width:295px; height:75px; margin:0px 0px 10px 10px; background:#dde; font-size:16pt; color: #aaa; font-weight:bold">
+            <span>SUBMIT</span>
+            <svg-icon src="{{ chevronImageUrl }}" style="fill:#aaa; width:17px; "></svg-icon>
+        </button>
     </div>
 </div>

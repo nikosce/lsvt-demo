@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 //import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SortableModule } from '@progress/kendo-angular-sortable';
+//import { SortableModule } from '@progress/kendo-angular-sortable';
 import { AppModuleShared } from './app.module.shared';
 import { AppComponent } from './components/app/app.component';
 //import { HttpClientModule } from '@angular/common/http';
-//import { AngularSvgIconModule } from 'angular-svg-icon';
 //import { InlineSVGModule } from 'ng-inline-svg';
+//import { AngularSvgIconModule } from 'angular-svg-icon';
+
 
 @NgModule({
     bootstrap: [ AppComponent ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        SortableModule,
         AppModuleShared,
-        Http
+        HttpModule,
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl }

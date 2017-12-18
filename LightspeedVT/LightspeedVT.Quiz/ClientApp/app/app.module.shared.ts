@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 //import { BrowserModule } from '@angular/platform-browser';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortableModule } from '@progress/kendo-angular-sortable';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -28,14 +29,15 @@ import { CounterComponent } from './components/counter/counter.component';
         HttpModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'fetch-course', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'fetch-course', component: FetchCourseComponent },
             { path: '**', redirectTo: 'home' }
         ]),
-        SortableModule
+        SortableModule,
+        AngularSvgIconModule
     ]
 })
 export class AppModuleShared {
